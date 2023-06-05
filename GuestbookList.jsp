@@ -136,9 +136,6 @@ th, td {
   
   
   <script>
-    function showGuestbookForm() {
-      document.getElementById('guestbook-form').style.display = 'block';
-    }
     
     function submitGuestbook() {
       // 방명록을 제출하는 코드
@@ -155,27 +152,17 @@ th, td {
       // 입력 후에는 입력 폼을 숨깁니다.
       cancelGuestbook();
     }
-    
-    function cancelGuestbook() {
-      document.getElementById('guestbook-form').style.display = 'none';
-      clearForm();
-    } // 취소 버튼 기능(입력창 비우기)
+    // 취소 버튼 기능(입력창 비우기)
     function clearForm() {
     	document.getElementById("authorInput").value = "";
         document.getElementById("emailInput").value = "";
         document.getElementById("titleInput").value = "";
         document.getElementById("passwordInput").value = "";
         document.getElementById("contentInput").value = "";
-        document.getElementById("addForm").classList.remove("show");
       }
     function hideAddForm() {
         document.getElementById('addForm').style.display = 'none';
       }
-    
-    	}
-
-	
-    }
 
   </script>
 </body>
