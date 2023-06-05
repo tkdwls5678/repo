@@ -50,7 +50,7 @@ th, td {
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">방명록 목록</h1>
+  <h1 style="text-align: center;" onclick="showGuestbookView()">방명록 목록</h1>
   <table>
   <tr style="background-color: rgb(240,240,240); text-align: center;">
     <td>번호</td>
@@ -136,6 +136,24 @@ th, td {
   
   
   <script>
+  function submitGuestbook() {
+	  var author = document.getElementById('authorInput').value;
+	  var email = document.getElementById('emailInput').value;
+	  var title = document.getElementById('titleInput').value;
+	  var password = document.getElementById('passwordInput').value;
+	  var content = document.getElementById('contentInput').value;
+
+	  if (author === '' || email === '' || title === '' || password === '' || content === '') {
+	    alert('입력란 내용을 채워주세요');
+	    return;
+	  }
+
+	  // 입력된 값이 유효하면 서버로 방명록을 전송하거나 다른 작업을 수행합니다.
+
+	  // 입력 후에는 입력 폼을 비웁니다.
+	  clearForm();
+	}
+
     
     function submitGuestbook() {
       // 방명록을 제출하는 코드
@@ -152,7 +170,8 @@ th, td {
       // 입력 후에는 입력 폼을 숨깁니다.
       cancelGuestbook();
     }
-    // 취소 버튼 기능(입력창 비우기)
+    
+ // 취소 버튼 기능(입력창 비우기)
     function clearForm() {
     	document.getElementById("authorInput").value = "";
         document.getElementById("emailInput").value = "";
@@ -163,7 +182,16 @@ th, td {
     function hideAddForm() {
         document.getElementById('addForm').style.display = 'none';
       }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('h1').addEventListener('click', function() {
+        window.location.href = 'guestbookView.jsp';
+      });
+    });
+
+
+	
 
   </script>
+  
 </body>
 </html>
